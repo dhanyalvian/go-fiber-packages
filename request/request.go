@@ -9,6 +9,14 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
+type RequestLog struct {
+	ReqId   string      `json:"reqId,omitempty"`
+	Headers interface{} `json:"headers,omitempty"`
+	Params  interface{} `json:"params,omitempty"`
+	Query   interface{} `json:"query,omitempty"`
+	Body    interface{} `json:"body,omitempty"`
+}
+
 func GetPage(c *fiber.Ctx) int {
 	page, _ := strconv.Atoi(c.Query("p"))
 	if page <= 0 {
